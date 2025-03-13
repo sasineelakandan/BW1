@@ -64,33 +64,67 @@
 
 
 
-function getUsers(){
-    console.log('getusers')
-    return new Promise((res,rej)=>{
-        setTimeout(()=>{
-            res('hello')
-          },1000)
-      })
+// function getUsers(){
+//     console.log('getusers')
+//     return new Promise((res,rej)=>{
+//         setTimeout(()=>{
+//             res('hello')
+//           },1000)
+//       })
+// }
+
+// function getPosts(data){
+//     console.log('getPosts')
+//     return new Promise((res,rej)=>{
+//         setTimeout(()=>{
+//            res(data+'world')
+//           },1000)
+//       })
+// }
+
+
+// function getComments(data){
+//     console.log('getComments')
+//  return  new Promise((res,rej)=>{
+//     setTimeout(()=>{
+//         res(data +'gm')
+//       },1000)
+//   })
+// }
+
+
+// getUsers().then(getPosts).then(getComments).then((data)=>{console.log(data)})
+
+
+
+
+function getUser(callback){
+   console.log('user fetched')
+   return new Promise((res,rej)=>{
+    setTimeout(()=>{
+        res('hello')
+       },1000)
+   })
 }
+
 
 function getPosts(data){
-    console.log('getPosts')
+    console.log('user getPosts')
     return new Promise((res,rej)=>{
         setTimeout(()=>{
-           res(data+'world')
-          },1000)
-      })
-}
+            res(data+'world')
+           },1000)
+     })
+ }
+
+ function getComments(data){
+    console.log('user getComments')
+    return new Promise((res,rej)=>{
+       setTimeout(()=>{
+        res(data+'gm')
+       },1000)
+     })
+ }
 
 
-function getComments(data){
-    console.log('getComments')
- return  new Promise((res,rej)=>{
-    setTimeout(()=>{
-        res(data +'gm')
-      },1000)
-  })
-}
-
-
-getUsers().then(getPosts).then(getComments).then((data)=>{console.log(data)})
+ getUser().then(getPosts).then(getComments).then((data)=>{console.log(data)})
