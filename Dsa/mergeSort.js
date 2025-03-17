@@ -7,25 +7,25 @@ function mergesort(arr){
     }
 
     let mid=Math.floor(arr.length/2)
-    let left=arr.slice(0,mid)
-    let right=arr.slice(mid)
-
-    return merge(mergesort(left),mergesort(right))
+    let left=mergesort(arr.slice(0,mid))
+    let right=mergesort(arr.slice(mid))
+    return merge(left,right)
 }
 
 function merge(arr1,arr2){
     let res=[]
-    while(arr1.length&&arr2.length){
-        if(arr1[0]<arr2[0]){
-            res.push(arr1.shift())
-          }else{
-              res.push(arr2.shift())  
-          }
+ while(arr1.length&&arr2.length){
+    if(arr1[0]<arr2[0]){
+      res.push(arr1.shift())  
+    }else{
+        res.push(arr2.shift())
     }
 
-    return [...res,...arr1,...arr2]
-
+ }
+  return [...res,...arr1,...arr2]
 }
+
+
 
 
 console.log(mergesort(arr))
